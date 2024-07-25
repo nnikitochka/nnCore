@@ -1,0 +1,15 @@
+name: nnCore
+version: '${project.version}'
+main: me.nnikitochka.nncore.nnCore
+api-version: '1.16'
+authors: [nnikitochka]
+description: Core of nn plugins
+softdepend:
+  - LuckPerms
+  - ProtocolLib
+libraries:
+  - com.zaxxer:HikariCP:5.1.0
+  - org.jdbi:jdbi3-core:3.38.0-rc3
+  - org.jdbi:jdbi3-caffeine-cache:3.38.0
+  - com.github.ben-manes.caffeine:caffeine:3.1.6
+  - org.jdbi:jdbi3-kotlin-sqlobject:3.38.0-rc3
