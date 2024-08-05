@@ -18,6 +18,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.logging.Logger;
 
 public class ConsoleMSG {
+    private static final String dsp = "&#ff6600[DEBUG] ";
     private static final Server server = Bukkit.getServer();
     private static final Logger logger = server.getLogger();
 
@@ -44,12 +45,21 @@ public class ConsoleMSG {
         color("&x&f&d&e&4&0&0"+plugin.getName()+"&f был &x&1&f&f&b&0&0перезагружен&f!");
     }
 
+
+    public static void debug(Object message, boolean debug) {
+        debug(String.valueOf(message), debug);
+    }
     public static void debug(String message, boolean debug) {
         StackTraceElement caller = Thread.currentThread().getStackTrace()[2];
-        if (debug) fatalError(caller.getClassName()+"."+caller.getMethodName()+": "+message);
+        if (debug) color(dsp+caller.getClassName()+"."+caller.getMethodName()+": "+message);
+    }
+
+
+    public static void debug(Object message) {
+        debug(String.valueOf(message));
     }
     public static void debug(String message) {
         StackTraceElement caller = Thread.currentThread().getStackTrace()[2];
-        if (nnCore.config.is_debug_enabled) fatalError(caller.getClassName()+"."+caller.getMethodName()+": "+message);
+        if (nnCore.config.is_debug_enabled) color(dsp+caller.getClassName()+"."+caller.getMethodName()+": "+message);
     }
 }

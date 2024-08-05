@@ -16,7 +16,7 @@ import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.WrappedDataWatcher;
 import org.bukkit.entity.Player;
 
-public class PrivateGlowing {
+public class PrivateGlowing { // Методы в этом классе работают не корректно, не рекомендуется к использованию!
     private final Player player;
     private final Player targetPlayer;
     public PrivateGlowing(Player player, Player targetPlayer) {

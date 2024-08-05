@@ -13,6 +13,9 @@ package me.nnikitochka.nncore.utils;
 import me.nnikitochka.nncore.configs.Config;
 
 public class TimeFormatter {
+    public String format(Integer time) {
+        return format(time.longValue());
+    }
     public String format(Long time) {
 
         long seconds = time;

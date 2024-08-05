@@ -8,40 +8,34 @@
 //    Официальное сообщество https://dsc.gg/nnedition
 
 
-package me.nnikitochka.nncore.configs;
+package me.nnikitochka.nncore.utils;
 
-import me.nnikitochka.nncore.utils.AbstractConfig;
-import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.event.HandlerList;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredListener;
 
-public class Config extends AbstractConfig {
-    public Config(JavaPlugin plugin, String fileName) {
-        super(plugin, fileName);
+import java.util.List;
+
+public abstract class AbstractListenersHandler {
+    public final Plugin plugin;
+    public final PluginManager pm;
+    public AbstractListenersHandler(Plugin plugin) {
+        this.plugin = plugin;
+        this.pm = plugin.getServer().getPluginManager();
+    }
+    public AbstractListenersHandler(Plugin plugin, PluginManager pm) {
+        this.plugin = plugin;
+        this.pm = pm;
     }
 
-    public boolean is_debug_enabled;
-    public String time_format;
+    public abstract void register();
 
-    public static String format_seconds;
-    public static String format_minutes;
-    public static String format_hours;
-    public static String format_days;
-    public static String format_months;
-    public static String format_years;
+    public void unregisterAll() {
+        HandlerList.unregisterAll(this.plugin);
+    }
 
-    @Override
-    public void loadVariables() {
-        is_debug_enabled = config.getBoolean("use-debug", false);
-        time_format = config.getString("time-format", "MM/dd/yyyy hh:mm:ss");
-
-        ConfigurationSection format = config.getConfigurationSection("format");
-        if (format != null) {
-            format_seconds = format.getString("seconds", " сек.");
-            format_minutes = format.getString("minutes", " мин. ");
-            format_hours = format.getString("hours", " ч. ");
-            format_days = format.getString("days", " д. ");
-            format_months = format.getString("months", " мес. ");
-            format_years = format.getString("years", " лет ");
-        }
+    public List<RegisteredListener> getListeners() {
+        return HandlerList.getRegisteredListeners(this.plugin);
     }
 }

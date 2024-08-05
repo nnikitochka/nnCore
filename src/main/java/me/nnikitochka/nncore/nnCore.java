@@ -1,12 +1,9 @@
 package me.nnikitochka.nncore;
 
 import me.nnikitochka.nncore.bstats.Metrics;
-import me.nnikitochka.nncore.commands.utils.AbstractCommand;
 import me.nnikitochka.nncore.commands.utils.CommandsUtils;
 import me.nnikitochka.nncore.configs.Config;
 import me.nnikitochka.nncore.utils.ConsoleMSG;
-import me.nnikitochka.nncore.utils.lpAPI;
-import net.luckperms.api.model.group.Group;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandMap;
 import org.bukkit.plugin.PluginManager;
