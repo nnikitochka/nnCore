@@ -41,6 +41,14 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <outputDirectory>$HOME/.m2/repository/me/nnikitochka/nnCore/1.0</outputDirectory>
+                </configuration>
+            </plugin>
         </plugins>
         <resources>
             <resource>
