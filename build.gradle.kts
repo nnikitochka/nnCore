@@ -1,6 +1,8 @@
 plugins {
     id("java")
     kotlin("jvm") version "2.2.0"
+    `java-library`
+    `maven-publish`
 }
 
 repositories {
@@ -10,6 +12,7 @@ repositories {
 subprojects {
     apply(plugin = "java")
     apply(plugin = "org.jetbrains.kotlin.jvm")
+    apply(plugin = "maven-publish")
 
     group = "ru.nnedition.nncore"
     version = "1.0"
@@ -24,5 +27,13 @@ subprojects {
 
     kotlin {
         jvmToolchain(21)
+    }
+
+    publishing {
+        publications {
+            create<MavenPublication>("maven") {
+                from(components["java"])
+            }
+        }
     }
 }
