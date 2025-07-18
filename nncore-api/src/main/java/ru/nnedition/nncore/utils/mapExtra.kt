@@ -1,4 +1,4 @@
-package nn.edition.nncore.utils
+package ru.nnedition.nncore.utils
 
 fun <K, V> Map<K, V>.single(): Pair<K, V> {
     assert(this.size == 1)

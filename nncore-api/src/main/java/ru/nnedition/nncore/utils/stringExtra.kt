@@ -1,4 +1,4 @@
-package nn.edition.nncore.utils
+package ru.nnedition.nncore.utils
 
 inline fun buildString(str: String, builderAction: StringBuilder.() -> Unit) =
     StringBuilder(str).apply(builderAction).toString()

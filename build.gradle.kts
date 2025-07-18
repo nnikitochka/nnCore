@@ -11,7 +11,7 @@ subprojects {
     apply(plugin = "java")
     apply(plugin = "org.jetbrains.kotlin.jvm")
 
-    group = "nn.edition.nncore"
+    group = "ru.nnedition.nncore"
     version = "1.0"
 
     repositories {
